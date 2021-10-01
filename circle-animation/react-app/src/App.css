@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid var(--color-to-change);
+    border-radius: 10px;
+    padding: 10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.animated {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-color: blue;
+    border-radius: 50px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.selected {
+    background-color: gold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.shape:hover {
+    border-radius: 0px;
+    width: var(--width-to-change);
+    height: var(--height-to-change);
 }
-
-.App-link {
-  color: #61dafb;
+.color:hover {
+    background-color: var(--color-to-change);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    text-transform: capitalize;
+}
+button:not(.selected):hover {
+    opacity: 0.5;
+}
+p,
+label {
+    font-weight: bold;
+    font-size: 20px;
+}
+#color-picker {
+    background-color: var(--color-to-change);
+}
+#color-picker::-webkit-color-swatch {
+    display: none;
 }

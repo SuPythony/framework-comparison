@@ -25,6 +25,10 @@
     ];
 </script>
 
+<svelte:head>
+    <title>Svelte Circle Animation</title>
+</svelte:head>
+
 <div id="container" style="--color-to-change: {colorToChange}">
     <div
         class="animated"
@@ -94,7 +98,7 @@
     {#if !(shape && !color)}
         <p>Change to Color</p>
         <div style="display: flex; gap: 10px; align-items: center;">
-            {#each colors as color}
+            {#each colors as color (color.name)}
                 <button
                     class:selected={color.hex === colorToChange}
                     on:click={() => {
@@ -102,12 +106,7 @@
                     }}>{color.name}</button
                 >
             {/each}
-            <input
-                type="color"
-                id="color-picker"
-                value={colorToChange}
-                on:change={(e) => (colorToChange = e.target.value)}
-            />
+            <input type="color" id="color-picker" bind:value={colorToChange} />
         </div>
     {/if}
 </div>
