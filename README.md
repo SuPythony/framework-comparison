@@ -10,7 +10,7 @@ A collection of apps built with both svelte and react using the same styles.
 4. You can run the svelte app by going into its directory and running the command `npm run dev`. Then open [localhost:5000](http://localhost:5000) to see it in action.
 5. You can run the react app by going into its directory and running the command `npm start`. Then open [localhost:3000](http://localhost:3000) to see it in action
 
-##Contributing
+## Contributing
 
 If you have an idea for an app you can raise an issue with the `idea` label.
 
