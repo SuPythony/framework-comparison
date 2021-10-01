@@ -16,7 +16,7 @@ If you have an idea for an app you can raise an issue with the `idea` label.
 
 If you want to contribute to the code check the [CONTRIBUTING](CONTRIBUTING.md) guide.
 
-### TODO
+## TODO
 
 1. Website
 2. More Apps
