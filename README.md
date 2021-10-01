@@ -1,6 +1,6 @@
 # Svelte React Comparison
 
-A collection of apps built with both svelte and react.
+A collection of apps built with both svelte and react using the same styles.
 
 ## Running locally
 
