@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alpine Circle Animation</title>
+        <link rel="stylesheet" href="main.css" />
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script>
+            document.addEventListener("alpine:init", () => {
+                window.Alpine.data("data", () => ({
+                    time: 500,
+                    shape: true,
+                    color: false,
+                    colorToChange: "#ff0000",
+                    shapeToChange: "square",
+                    shapeToChangeWidth: "100px",
+                    shapeToChangeHeight: "100px",
+                    colors: [
+                        { name: "red", hex: "#ff0000" },
+                        { name: "yellow", hex: "	#ffff00" },
+                        { name: "pink", hex: "#ffc0cb" },
+                        { name: "orange", hex: "#ffa500" },
+                        { name: "purple", hex: "#800080" },
+                        { name: "cyan", hex: "#00ffff" },
+                        { name: "chocolate", hex: "#D2691E" },
+                    ],
+                    shapes: [
+                        { name: "small square", width: "50px", height: "50px" },
+                        { name: "square", width: "100px" },
+                        { name: "rectangle", width: "150px" },
+                        { name: "elongated rectangle", width: "250px" },
+                        { name: "vertical rectangle", width: "50px" },
+                        { name: "full rectangle", width: "100%" },
+                    ],
+                }));
+            });
+        </script>
+    </head>
+    <body>
+        <div x-data="data" id="container" :style="{'--color-to-change': colorToChange}">
+            <div
+                class="animated"
+                :style="{'transition': `${time}ms ease`, '--width-to-change': shapeToChangeWidth, '--height-to-change': shapeToChangeHeight}"
+                :class="{'shape': shape, 'color': color}"
+            ></div>
+            <label for="time">Animation Time:</label>
+            <div>
+                <input id="time" type="range" min="0" max="2000" step="10" x-model="time" />
+                <input type="number" min="0" max="2000" step="10" x-model="time" />
+            </div>
+
+            <div style="margin-top: 10px">
+                <button :class="{selected: shape && !color}" @click="shape = true; color = false;">
+                    Change Shape
+                </button>
+                <button :class="{selected: color && !shape}" @click="shape = false; color = true;">
+                    Change Color
+                </button>
+                <button :class="{selected: color && shape}" @click="shape = true; color = true;">
+                    Both
+                </button>
+            </div>
+
+            <template x-if="!(!shape && color)">
+                <div style="display: flex; flex-direction: column; align-items: center">
+                    <p>Change to Shape</p>
+                    <div style="display: flex; gap: 10px">
+                        <template x-for="shape in shapes" :key="shape.name">
+                            <button
+                                :class="{selected: shape.name === shapeToChange}"
+                                @click="shapeToChange = shape.name;
+                                        shapeToChangeWidth = shape.width;
+                                        shapeToChangeHeight = shape.height || '100px';"
+                                x-text="shape.name"
+                            ></button>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <template x-if="!(shape && !color)">
+                <div style="display: flex; flex-direction: column; align-items: center">
+                    <p>Change to Color</p>
+                    <div style="display: flex; gap: 10px; align-items: center">
+                        <template x-for="color in colors" :key="color.name">
+                            <button
+                                :class="{selected: color.hex === colorToChange}"
+                                @click="colorToChange = color.hex;"
+                                x-text="color.name"
+                            ></button>
+                        </template>
+                        <input type="color" id="color-picker" x-model="colorToChange" />
+                    </div>
+                </div>
+            </template>
+        </div>
+    </body>
+</html>
