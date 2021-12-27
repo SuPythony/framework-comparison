@@ -1,4 +1,4 @@
-# Svelte React Comparison
+# Framework Comparison
 
 A collection of apps built with different frameworks using the same styles.
 
