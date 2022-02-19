@@ -8,7 +8,7 @@
     let shapeToChangeHeight = "100px";
     let colors = [
         { name: "red", hex: "#ff0000" },
-        { name: "yellow", hex: "	#ffff00" },
+        { name: "yellow", hex: "#ffff00" },
         { name: "pink", hex: "#ffc0cb" },
         { name: "orange", hex: "#ffa500" },
         { name: "purple", hex: "#800080" },
@@ -143,6 +143,7 @@
         background-color: red;
         color: white;
         text-transform: capitalize;
+        padding: 5px;
     }
     button:not(.selected):hover {
         opacity: 0.5;

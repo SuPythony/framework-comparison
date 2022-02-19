@@ -1,0 +1,2 @@
+elm make %1 --optimize --output=main.js
+powershell -Command "(gc main.js) -replace 'domNodeStyle\[key\] = styles\[key\]', 'domNodeStyle.setProperty(key, styles[key])' | Out-File -encoding ASCII main.js"

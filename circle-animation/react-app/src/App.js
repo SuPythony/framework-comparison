@@ -129,7 +129,7 @@ function App() {
                             <button
                                 key={color.name}
                                 className={
-                                    color.hexe === colorToChange
+                                    color.hex === colorToChange
                                         ? "selected"
                                         : ""
                                 }

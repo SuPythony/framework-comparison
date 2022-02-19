@@ -10,6 +10,7 @@ A collection of apps built with different frameworks using the same styles.
 4. You can run the svelte app by going into its directory and running the command `npm run dev`. Then open [localhost:5000](http://localhost:5000) to see it in action.
 5. You can run the react app by going into its directory and running the command `npm start`. Then open [localhost:3000](http://localhost:3000) to see it in action.
 6. You can run the alpine app by directly opening the `index.html` file.
+7. You can run the elm app by directly opening the `index.html` file.
 
 ## Contributing
 
